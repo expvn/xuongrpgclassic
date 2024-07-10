@@ -1,21 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class FoxNPC : MonoBehaviour
 {
     public Transform player;
     public Conversations conversationPanel;
+    public int brandid = 2; //fox story
+
+    private void Start()
+    {
+        brandid = 2;
+    }
 
     private void OnMouseDown()
     {
         if (Vector2.Distance(transform.position, player.position) < 2f)
         {
-            switch (QuestManager.instance.foxStory)
+            int qip = QuestManager.instance.GetQipStory(brandid);
+            switch (qip)
             {
                 case 0:
                     {
                         conversationPanel.gameObject.SetActive(true);
                         conversationPanel.LoadTextAsset("Map1/fox1");
-                        conversationPanel.idStory = 2;
+                        conversationPanel.brandStoryID = brandid;
                         conversationPanel.NoiChuyen();
                     }
                     break;
@@ -24,7 +32,7 @@ public class FoxNPC : MonoBehaviour
                     {
                         conversationPanel.gameObject.SetActive(true);
                         conversationPanel.LoadTextAsset("Map1/fox2");
-                        conversationPanel.idStory = 0; //Không thay đổi tiến trình, chỉ thay đổi khi làm nhiệm vụ
+                        conversationPanel.brandStoryID = 0; //Không thay đổi tiến trình, chỉ thay đổi khi làm nhiệm vụ
                         conversationPanel.NoiChuyen();
                     }
                     break;
@@ -32,7 +40,7 @@ public class FoxNPC : MonoBehaviour
                     {
                         conversationPanel.gameObject.SetActive(true);
                         conversationPanel.LoadTextAsset("Map1/fox3");
-                        conversationPanel.idStory = 2;
+                        conversationPanel.brandStoryID = brandid;
                         conversationPanel.NoiChuyen();
                     }
                     break;

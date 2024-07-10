@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -10,16 +11,27 @@ public class QuestPanel : MonoBehaviour
     public TextMeshProUGUI description;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI expText;
+    public int brandID;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ShowQuest(Quest q, int id)
     {
-        
+        quest = q;
+        title.text = quest.name;
+        description.text = quest.description;
+        coinText.text = quest.coinReward.ToString();
+        expText.text = quest.xpReward.ToString();
+        brandID = id;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OKBTN()
     {
-        
+        QuestManager.instance.receivedQuest.Add(quest);
+        gameObject.SetActive(false);
+    }
+
+    public void CancelBTN()
+    {
+        QuestManager.instance.BackQip(brandID);
+        gameObject.SetActive(false);
     }
 }

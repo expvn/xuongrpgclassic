@@ -1,2 +1,2 @@
 id	progressStory	title	description	xp	coin	requiment
-2	2	Thể hiện thực lực	Fox không yên tâm về thực lực của bạn nên thử thách bạn tiêu diệt 10 con ABC rồi mới chỉ đường cho bạn. Hãy ra khỏi làng và tiêu diệt 10 con ABC rồi quay về gặp Fox.	10000	50	10
+2	1	Thể hiện thực lực	Fox không yên tâm về thực lực của bạn nên thử thách bạn tiêu diệt 10 con ABC rồi mới chỉ đường cho bạn. Hãy ra khỏi làng và tiêu diệt 10 con ABC rồi quay về gặp Fox.	10000	50	10

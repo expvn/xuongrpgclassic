@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -21,7 +22,6 @@ public class PlayerMove : MonoBehaviour
     {
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
-        
 
         anim.SetFloat("runX", direction.x);
         anim.SetFloat("runY", direction.y);
@@ -36,6 +36,18 @@ public class PlayerMove : MonoBehaviour
         anim.SetFloat("dirY", currentDirection.y);
 
         direction.Normalize();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            var getQ = QuestManager.instance.receivedQuest.Where(x => x.brandStoryID == 2 && x.qip == 1).ToList();
+            if (getQ.Count > 0)
+            {
+                foreach (var x in getQ)
+                {
+                    x.SetCurrent();
+                }
+            }
+        }
     }
 
     private void FixedUpdate()

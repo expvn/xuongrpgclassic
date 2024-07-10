@@ -10,10 +10,11 @@ public class Conversations : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI textContent;
     public GameObject playerAvatar;
     public GameObject NPCAvatar;
+    public QuestPanel questPanel;
 
     public List<HoiThoai> listHT;
     public int current = 0;
-    public int idStory;
+    public int brandStoryID;
 
     public void LoadTextAsset(string path)
     {
@@ -61,8 +62,13 @@ public class Conversations : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            QuestManager.instance.SetProgressQuestStory(idStory);
-            //QuestManager.instance.CheckQuest(idStory);
+            QuestManager.instance.SetQipStory(brandStoryID);
+            var getQ = QuestManager.instance.GetQuest(brandStoryID);
+            if (getQ != null)
+            {
+                questPanel.ShowQuest(getQ, brandStoryID);
+                questPanel.gameObject.SetActive(true);
+            }
             gameObject.SetActive(false);
         }
     }
