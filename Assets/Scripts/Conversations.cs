@@ -14,7 +14,7 @@ public class Conversations : MonoBehaviour, IPointerClickHandler
 
     public List<HoiThoai> listHT;
     public int current = 0;
-    public int brandStoryID;
+    public int brandStoryID; //nhánh truyện
 
     public void LoadTextAsset(string path)
     {
@@ -62,12 +62,12 @@ public class Conversations : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            QuestManager.instance.SetQipStory(brandStoryID);
+            QuestManager.instance.SetQipStory(brandStoryID); //tang len 1
             var getQ = QuestManager.instance.GetQuest(brandStoryID);
             if (getQ != null)
             {
-                questPanel.ShowQuest(getQ, brandStoryID);
-                questPanel.gameObject.SetActive(true);
+                //questPanel.ShowQuest(getQ, brandStoryID); //truyền thông quest và id nhánh sang quest panel
+                //questPanel.gameObject.SetActive(true); //show quest lên
             }
             gameObject.SetActive(false);
         }

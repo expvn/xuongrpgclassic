@@ -25061,9 +25061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b7fc2564e9be34aa3ab84a5d23611c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brandStory: []
   AllQuests: []
   receivedQuest: []
-  brandStory: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -98780,21 +98780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274a3afee741e044ea4950d8caa630b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
-    brandStoryID: 0
-    progressStory: 0
-    name: 
-    description: 
-    xpReward: 0
-    coinReward: 0
-    requiment: 0
-    current: 0
-    complete: 0
-  title: {fileID: 1971510893}
-  description: {fileID: 885352353}
-  coinText: {fileID: 2009767814}
-  expText: {fileID: 589605188}
-  brandID: 0
 --- !u!1 &1533339764
 GameObject:
   m_ObjectHideFlags: 0

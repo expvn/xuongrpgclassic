@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
-    public List<Quest> AllQuests = new List<Quest>();
-    public List<Quest> receivedQuest = new List<Quest>();
     public List<BrandStoryID> brandStory = new List<BrandStoryID>();
+    public List<Quest> AllQuests = new List<Quest>(); //tat ca nhiem vu trong game
+    public List<Quest> receivedQuest = new List<Quest>(); //nhiem vu nguoi choi da nhan (chua lam xong)
 
     private void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
-            DestroyImmediate(gameObject);
+            DestroyImmediate(instance);
         }
         else
         {
@@ -25,7 +26,6 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         LoadTextAsset("Map1/subQuest");
-
         brandStory.Add(new BrandStoryID { brandID = 1, name = "mainStory", qip = 0 });
         brandStory.Add(new BrandStoryID { brandID = 2, name = "foxStory", qip = 0 });
     }
@@ -52,12 +52,17 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void SetQipStory(int id)
+    public Quest GetQuest(int id)
     {
-        var getQip = brandStory.FirstOrDefault(x => x.brandID == id);
-        if (getQip != null)
+        var qip = GetQipStory(id);
+        var getQ = AllQuests.FirstOrDefault(x => x.brandStoryID == id && x.qip == qip);
+        if (getQ != null)
         {
-            getQip.qip++;
+            return getQ;
+        }
+        else
+        {
+            return null;
         }
     }
 
@@ -74,26 +79,12 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void BackQip(int id)
+    public void SetQipStory(int id)
     {
         var getQip = brandStory.FirstOrDefault(x => x.brandID == id);
         if (getQip != null)
         {
-            getQip.qip--;
-        }
-    }
-
-    public Quest GetQuest(int id)
-    {
-        var qip = GetQipStory(id);
-        var getQ = AllQuests.FirstOrDefault(x => x.brandStoryID == id && x.qip == qip);
-        if (getQ != null)
-        {
-            return getQ;
-        }
-        else
-        {
-            return null;
+            getQip.qip++; //tiến trình + 1
         }
     }
 }
@@ -103,19 +94,19 @@ public class BrandStoryID
 {
     public int brandID;
     public string name;
-    public int qip; //quest in progresss
+    public int qip; //quest in progress
 }
 
 [System.Serializable]
 public class Quest
 {
-    public int brandStoryID;
-    public int qip; //Quest in progress
+    public int brandStoryID; //vd: 2 -> foxStory
+    public int qip; //quest in progress //vd: => 1
     public string name;
-    public string description;
-    public int xpReward;
-    public int coinReward;
-    public int requiment;
+    public string description; //mo ta nhiem vu
+    public int xpReward; //phan thuong kinh nghiem
+    public int coinReward; //phan thuong coin
+    public int requiment; //yeu cau nhiem vu
     public int current;
     public bool complete;
 
@@ -125,11 +116,6 @@ public class Quest
         if (current >= requiment)
         {
             complete = true;
-            var getQip = QuestManager.instance.brandStory.FirstOrDefault(x => x.brandID == brandStoryID);
-            if (getQip != null)
-            {
-                getQip.qip++;
-            }
         }
     }
 }
