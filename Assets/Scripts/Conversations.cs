@@ -66,10 +66,10 @@ public class Conversations : MonoBehaviour, IPointerClickHandler
             var getQ = QuestManager.instance.GetQuest(brandStoryID);
             if (getQ != null)
             {
-                //questPanel.ShowQuest(getQ, brandStoryID); //truyền thông quest và id nhánh sang quest panel
-                //questPanel.gameObject.SetActive(true); //show quest lên
+                questPanel.ShowQuest(getQ, brandStoryID);
+                questPanel.gameObject.SetActive(true);
             }
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); //tắt giao diện nói chuyện đi
         }
     }
 

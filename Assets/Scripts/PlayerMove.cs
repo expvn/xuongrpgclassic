@@ -37,17 +37,17 @@ public class PlayerMove : MonoBehaviour
 
         direction.Normalize();
 
-        //if (Input.GetKeyDown(KeyCode.H))
-        //{
-        //    var getQ = QuestManager.instance.receivedQuest.Where(x => x.brandStoryID == 2 && x.qip == 1).ToList();
-        //    if (getQ.Count > 0)
-        //    {
-        //        foreach (var x in getQ)
-        //        {
-        //            x.SetCurrent();
-        //        }
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            var getQ = QuestManager.instance.receivedQuest.Where(x => x.brandStoryID == 2 && x.qip == 1).ToList();
+            if (getQ.Count > 0)
+            {
+                foreach (var x in getQ)
+                {
+                    x.SetCurrent();
+                }
+            }
+        }
     }
 
     private void FixedUpdate()

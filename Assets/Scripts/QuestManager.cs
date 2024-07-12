@@ -87,6 +87,15 @@ public class QuestManager : MonoBehaviour
             getQip.qip++; //tiến trình + 1
         }
     }
+
+    public void BackQip(int id)
+    {
+        var getQip = brandStory.FirstOrDefault(x => x.brandID == id);
+        if (getQip != null)
+        {
+            getQip.qip--; //tiến trình - 1
+        }
+    }
 }
 
 [System.Serializable]
