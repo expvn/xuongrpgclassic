@@ -1,11 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInfomation : MonoBehaviour
 {
     public static PlayerInfomation instance;
+    public PlayerAttributes playerAttributes; //Thông tin thuộc tính hiện tại của nhân vật
+    public PlayerAttributes saveAttributes; //Lưu lại thông tin thuộc tính nhân vật
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            DestroyImmediate(this);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        playerAttributes.Basic();        
+    }
+}
+
+[System.Serializable]
+public class PlayerAttributes
+{
     public int level;
     public float requimentEXP;
     public float currentEXP;
@@ -24,10 +46,31 @@ public class PlayerInfomation : MonoBehaviour
     public int critical; //%
     public float speedMove;
 
+    public void Basic()
+    {
+        level = 1;
+        requimentEXP = Mathf.Pow(level, 3) * 60;
+        currentEXP = 0;
+        maxHP = 200;
+        currentHP = maxHP;
+        maxMP = 100;
+        currentMP = maxMP;
+        str = 10;
+        agi = 12;
+        intel = 20;
+        physicDmg = 20;
+        magicDmg = 50;
+        defPhysicDmg = 10;
+        defMagicDmg = 20;
+        avoid = 5;
+        critical = 5;
+        speedMove = 3;
+    }
+
     public void IncrementEXP(int exp)
     {
         currentEXP += exp;
-        if(currentEXP >= requimentEXP)
+        if (currentEXP >= requimentEXP)
         {
             level++;
             requimentEXP = Mathf.Pow(level, 3) * 60;
@@ -48,18 +91,4 @@ public class PlayerInfomation : MonoBehaviour
             speedMove += 0.1f;
         }
     }
-
-    private void Awake()
-    {
-        if(instance != null && instance != this)
-        {
-            DestroyImmediate(this);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
-
 }
