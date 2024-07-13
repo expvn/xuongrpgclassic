@@ -12,14 +12,14 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance != null && instance != this) //Nếu instance đã tồn tại và instance không tham chiếu tới đối tượng này
         {
-            DestroyImmediate(this);
+            DestroyImmediate(this); //xóa đối tượng này ngay lập tức
         }
-        else
+        else //nếu instance rỗng
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            instance = this; //gán đối tượng này vào instance
+            DontDestroyOnLoad(gameObject); //Không xóa khi chuyển scene
         }
     }
 
