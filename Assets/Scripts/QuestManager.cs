@@ -14,7 +14,7 @@ public class QuestManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            DestroyImmediate(instance);
+            DestroyImmediate(this);
         }
         else
         {
