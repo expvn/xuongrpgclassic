@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class DangKyTaiKhoan : MonoBehaviour
 {
-    public TMP_InputField username;
-    public TMP_InputField password;
+    public TMP_InputField user;
+    public TMP_InputField passwd;
     public TextMeshProUGUI thongbao;
 
     public void DangKyButton()
@@ -18,10 +17,11 @@ public class DangKyTaiKhoan : MonoBehaviour
     private IEnumerator DangKy()
     {
         WWWForm form = new WWWForm();
-        form.AddField("user", username.text);
-        form.AddField("passwd", password.text);
+        form.AddField("user", user.text);
+        form.AddField("passwd", passwd.text);
 
         UnityWebRequest www = UnityWebRequest.Post("https://fpl.expvn.com/dangky.php", form);
+
         yield return www.SendWebRequest();
 
         if (!www.isDone)
@@ -37,7 +37,7 @@ public class DangKyTaiKhoan : MonoBehaviour
                 case "exist": thongbao.text = "Tài khoản đã tồn tại"; break;
                 case "OK": thongbao.text = "Đăng ký thành công"; break;
                 case "ERROR": thongbao.text = "Đăng ký không thành công"; break;
-                default: thongbao.text = "không kết nối được tới server"; break;
+                default: thongbao.text = "Không kết nối được server"; break;
             }
         }
     }
