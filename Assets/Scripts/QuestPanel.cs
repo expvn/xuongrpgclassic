@@ -19,7 +19,7 @@ public class QuestPanel : MonoBehaviour
         quest = q;
         title.text = quest.name;
         description.text = quest.description;
-        requimentText.text = "Requiment: 0/" + quest.requiment.ToString();
+        requimentText.text = "Requiment: 0/" + quest.require.ToString();
         cointText.text = quest.coinReward.ToString();
         expText.text = quest.xpReward.ToString();
         brandID = id;

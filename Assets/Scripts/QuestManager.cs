@@ -46,7 +46,7 @@ public class QuestManager : MonoBehaviour
             q.description = cols[3];
             q.xpReward = System.Convert.ToInt32(cols[4]);
             q.coinReward = System.Convert.ToInt32(cols[5]);
-            q.requiment = System.Convert.ToInt32(cols[6]);
+            q.require = System.Convert.ToInt32(cols[6]);
 
             AllQuests.Add(q); //Thêm hội thoại vào danh sách hội thoại
         }
@@ -115,14 +115,14 @@ public class Quest
     public string description; //mo ta nhiem vu
     public int xpReward; //phan thuong kinh nghiem
     public int coinReward; //phan thuong coin
-    public int requiment; //yeu cau nhiem vu
+    public int require; //yeu cau nhiem vu
     public int current;
     public bool complete;
 
     public void SetCurrent()
     {
         current++;
-        if (current >= requiment)
+        if (current >= require)
         {
             complete = true;
         }

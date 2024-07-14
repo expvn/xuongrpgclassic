@@ -29,7 +29,7 @@ public class PlayerInfomation : MonoBehaviour
 public class PlayerAttributes
 {
     public int level;
-    public float requimentEXP;
+    public float requireEXP;
     public float currentEXP;
     public int maxHP;
     public int currentHP;
@@ -38,10 +38,10 @@ public class PlayerAttributes
     public int str; //tăng công & thủ vật lý
     public int agi; //tăng tốc độ di chuyển né tránh và critical
     public int intel; //tăng công & thủ phép
-    public int physicDmg;
-    public int magicDmg;
-    public int defPhysicDmg;
-    public int defMagicDmg;
+    public int pAtk;
+    public int mAtk;
+    public int pDef;
+    public int mDef;
     public int avoid; //%
     public int critical; //%
     public float speedMove;
@@ -49,7 +49,7 @@ public class PlayerAttributes
     public void Basic()
     {
         level = 1;
-        requimentEXP = Mathf.Pow(level, 3) * 60;
+        requireEXP = Mathf.Pow(level, 3) * 60;
         currentEXP = 0;
         maxHP = 200;
         currentHP = maxHP;
@@ -58,10 +58,10 @@ public class PlayerAttributes
         str = 10;
         agi = 12;
         intel = 20;
-        physicDmg = 20;
-        magicDmg = 50;
-        defPhysicDmg = 10;
-        defMagicDmg = 20;
+        pAtk = 20;
+        mAtk = 50;
+        pDef = 10;
+        mDef = 20;
         avoid = 5;
         critical = 5;
         speedMove = 3;
@@ -70,10 +70,10 @@ public class PlayerAttributes
     public void IncrementEXP(int exp)
     {
         currentEXP += exp;
-        if (currentEXP >= requimentEXP)
+        if (currentEXP >= requireEXP)
         {
             level++;
-            requimentEXP = Mathf.Pow(level, 3) * 60;
+            requireEXP = Mathf.Pow(level, 3) * 60;
             currentEXP = 0;
             maxHP += Mathf.RoundToInt((maxHP * 2) / 100);
             currentHP = maxHP;
@@ -82,10 +82,10 @@ public class PlayerAttributes
             str += 3;
             agi += 5;
             intel += 7;
-            physicDmg += 7;
-            magicDmg += 7;
-            defPhysicDmg += 7;
-            defMagicDmg += 7;
+            pAtk += 7;
+            mAtk += 7;
+            pDef += 7;
+            mDef += 7;
             avoid += 1;
             critical += 1;
             speedMove += 0.1f;
