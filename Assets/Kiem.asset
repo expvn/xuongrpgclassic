@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01d196d956c4f3e43bdd95262a1486e4, type: 3}
-  m_Name: Test
+  m_Name: Kiem
   m_EditorClassIdentifier: 
-  itemName: New Item
-  description: 
+  itemName: "Ki\u1EBFm g\xEC \u0111\xF3"
+  description: "M\xF4 t\u1EA3 c\u1EE7a thanh ki\u1EBFm \u0111\xF3"
   icon: {fileID: 0}
+  type: 0
+  rare: 0
+  attributes: {fileID: 0}
