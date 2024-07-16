@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 public class DangNhapTaiKhoan : MonoBehaviour
 {
-    public TMP_InputField username;
-    public TMP_InputField password;
+    public TMP_InputField user;
+    public TMP_InputField passwd;
     public TextMeshProUGUI thongbao;
+
+
+
 
     public void DangNhapButton()
     {
@@ -17,37 +21,39 @@ public class DangNhapTaiKhoan : MonoBehaviour
     IEnumerator DangNhap()
     {
         WWWForm form = new WWWForm();
-        form.AddField("user", username.text);
-        form.AddField("passwd", password.text);
+        form.AddField("user", user.text);
+        form.AddField("passwd", passwd.text);
 
         UnityWebRequest www = UnityWebRequest.Post("https://fpl.expvn.com/dangnhap.php", form);
-        yield return www.SendWebRequest();
+        yield return www.SendWebRequest(); //chờ phản hồi từ máy chủ
 
-        if(!www.isDone)
+        if (!www.isDone)
         {
             thongbao.text = "Kết nối không thành công";
         }
         else
         {
             string get = www.downloadHandler.text;
+
             if(get == "empty")
             {
-                thongbao.text = "Các trường dữ liệu không thể để trống";
+                thongbao.text = "Các trường không được để trống";
             }else if(get == "" || get == null)
             {
-                thongbao.text = "Tài khoản hoặc mật khẩu không chính xác";
+                thongbao.text = "Tài khoản hoặc mật khẩu không đúng";
             }else if (get.Contains("Lỗi"))
             {
-                thongbao.text = "Không kết nối được tới server";
+                thongbao.text = "không kết nối được server";
             }
             else
             {
                 thongbao.text = "Đăng nhập thành công";
                 PlayerPrefs.SetString("token", get);
-                Debug.Log(get);
             }
+
+            string token = PlayerPrefs.GetString("token");
+            Debug.Log(token);
         }
     }
-
     
 }
