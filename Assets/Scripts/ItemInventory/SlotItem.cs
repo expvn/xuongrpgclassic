@@ -2,30 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SlotItem : MonoBehaviour, IPointerUpHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class SlotItem : MonoBehaviour, IPointerClickHandler
 {
-    public Canvas parent;
-    public Canvas child;
-    public RectTransform rectTransform;
+    public Items item;
+    public Image icon;
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void SetIcon()
     {
-        child.overrideSorting = true;
+        icon.sprite = item.itemInfo.icon;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / parent.scaleFactor;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        child.overrideSorting = false;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        print("show info");
+        Debug.Log(item.itemInfo.name);
     }
 }

@@ -2,9 +2,10 @@
 
 public class PlayerAttributes : MonoBehaviour
 {
-    public static PlayerAttributes Instance; //null
-    public PlayerInfo basePlayer; //thuộc tính cơ bản ban đầu (fix)
-    public PlayerInfo playerInfo; //tính toán thuộc tính
+    public static PlayerAttributes Instance;
+    public PlayerInfo basePlayer;
+    public PlayerInfo extraPlayer;
+    public PlayerInfo playerInfo;
 
     private void Awake()
     {
@@ -21,25 +22,45 @@ public class PlayerAttributes : MonoBehaviour
 
     private void Start()
     {
+        SetBase();
+    }
+
+    public void SetBase()
+    {
+        //Level
         basePlayer.level = 1;
+
+        //EXP
         basePlayer.requireEXP = 100 * Mathf.Pow(basePlayer.level, 3);
         basePlayer.currentEXP = 0;
+
+        //HP
         basePlayer.HP = 200;
         basePlayer.currentHP = basePlayer.HP;
+
+        //MP
         basePlayer.MP = 100;
         basePlayer.currentMP = basePlayer.MP;
+
+        //STR - AGI - INT
         basePlayer.str = 10;
         basePlayer.agi = 12;
         basePlayer.intel = 20;
+
+        //ATK
         basePlayer.pAtk = 20;
         basePlayer.mAtk = 50;
+
+        //DEF
         basePlayer.pDef = 10;
         basePlayer.mDef = 20;
+
+        //AVOID - CRIT
         basePlayer.avoid = 5;
         basePlayer.critical = 5;
-        basePlayer.speedMove = 3;
 
-        playerInfo = basePlayer;
+        //MOVE
+        basePlayer.speedMove = 3;
     }
 }
 
