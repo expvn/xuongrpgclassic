@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class InventoryPanel : MonoBehaviour
 {
+    public ListAllItems ListAllItems;
     public Transform slotParent;
-    public List<SlotItem> listSlot;
+    public List<SlotItem> listSlots;
 
     private void Start()
     {
+        print(slotParent.name);
         foreach (Transform t in slotParent)
         {
-            listSlot.Add(t.GetComponent<SlotItem>());
+            listSlots.Add(t.GetComponent<SlotItem>());
         }
-        print("start");
+
         ShowItem();
     }
 
     public void ShowItem()
     {
-        print(ListItem.Instance.listPlayerItem.Count);
-        for (int i = 0; i < ListItem.Instance.listPlayerItem.Count; i++)
+        for (int i = 0; i < ListAllItems.listPlayerItems.Count; i++)
         {
-            print(ListItem.Instance.listPlayerItem[i].itemInfo.name);
-            listSlot[i].item = ListItem.Instance.listPlayerItem[i];
-            listSlot[i].SetIcon();
+            listSlots[i].item = ListAllItems.listPlayerItems[i];
+            listSlots[i].SetIcon();
         }
     }
 }

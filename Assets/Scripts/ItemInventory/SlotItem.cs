@@ -9,13 +9,19 @@ public class SlotItem : MonoBehaviour, IPointerClickHandler
     public Items item;
     public Image icon;
 
-    public void SetIcon()
-    {
-        icon.sprite = item.itemInfo.icon;
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(item.itemInfo.name);
+        if (item != null)
+        {
+            Debug.Log(item.itemsInfo.name);
+        }
+    }
+
+    public void SetIcon()
+    {
+        if (item != null)
+        {
+            icon.sprite = item.itemsInfo.sprite;
+        }
     }
 }
