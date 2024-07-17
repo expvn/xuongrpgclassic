@@ -22,6 +22,12 @@ public class SlotItem : MonoBehaviour, IPointerClickHandler
         if (item != null)
         {
             icon.sprite = item.itemsInfo.sprite;
+            icon.color = new Color(1, 1, 1, 1);
         }
+    }
+
+    public void SetHide()
+    {
+        icon.color = new Color(1, 1, 1, 0);
     }
 }

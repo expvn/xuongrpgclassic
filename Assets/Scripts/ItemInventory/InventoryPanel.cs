@@ -12,7 +12,9 @@ public class InventoryPanel : MonoBehaviour
     {
         foreach (Transform t in slotParent)
         {
-            listSlots.Add(t.GetComponent<SlotItem>());
+            SlotItem item = t.GetComponent<SlotItem>();
+            item.SetHide();
+            listSlots.Add(item);
         }
 
         ShowItem();
