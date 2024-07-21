@@ -1,4 +1,5 @@
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -6,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
 
-    private Vector2 direction;
+    public Vector2 direction;
     public float speed = 5f;
     private int current = 0;
 
@@ -47,6 +48,19 @@ public class PlayerMove : MonoBehaviour
                     x.SetCurrent();
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            float posX = Random.Range(transform.position.x - 1, transform.position.x + 1);
+            float posY = Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f);
+            Vector3 pos = new Vector3(posX, posY,transform.position.z);
+            FloatDMG.instance.ShowDMG(100, pos);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            EditorApplication.isPlaying = false;
         }
     }
 

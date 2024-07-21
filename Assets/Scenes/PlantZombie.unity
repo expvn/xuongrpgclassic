@@ -7837,6 +7837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b7fc2564e9be34aa3ab84a5d23611c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brandStory: []
+  AllQuests: []
+  receivedQuest: []
 --- !u!4 &1901626932
 Transform:
   m_ObjectHideFlags: 0

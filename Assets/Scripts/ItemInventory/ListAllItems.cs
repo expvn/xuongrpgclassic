@@ -46,9 +46,9 @@ public class ListAllItems : MonoBehaviour
 public class Items
 {
     public ItemsInfo itemsInfo;
-    public ItemsAttribute att1;
-    public ItemsAttribute att2;
-    public ItemsAttribute att3;
+    public thuocTinhTrangBi att1;
+    public thuocTinhTrangBi att2;
+    public thuocTinhTrangBi att3;
 }
 
 [System.Serializable]
@@ -63,7 +63,7 @@ public class ItemsInfo
 }
 
 [System.Serializable]
-public class ItemsAttribute
+public class thuocTinhTrangBi
 {
     public int id; //1 - str, 2 - agi..
     public string name; //tên thuộc tính
