@@ -26,4 +26,13 @@ public class InventoryPanel : MonoBehaviour
             listSlots[i].SetIcon();
         }
     }
+
+    public void ClearSlot()
+    {
+        foreach(var t in listSlots)
+        {
+            t.item = null;
+            t.SetIcon();
+        }
+    }
 }

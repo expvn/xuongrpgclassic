@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotItem : MonoBehaviour, IPointerClickHandler
+public class SlotItem : MonoBehaviour, IPointerClickHandler, IPointerUpHandler
 {
     public Items item;
     public Image icon;
@@ -13,8 +13,13 @@ public class SlotItem : MonoBehaviour, IPointerClickHandler
     {
         if (item != null)
         {
-            Debug.Log(item.itemsInfo.name);
+            MenuContext.instance.Show(item);
+            MenuContext.instance.gameObject.SetActive(true);
         }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
     }
 
     public void SetIcon()
@@ -22,6 +27,10 @@ public class SlotItem : MonoBehaviour, IPointerClickHandler
         if (item != null)
         {
             icon.sprite = item.itemsInfo.sprite;
+        }
+        else
+        {
+            icon.sprite = null;
         }
     }
 }

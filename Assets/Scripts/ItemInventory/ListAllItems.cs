@@ -6,9 +6,24 @@ using UnityEngine;
 
 public class ListAllItems : MonoBehaviour
 {
+    public static ListAllItems Instance;
+
     public List<Sprite> allSprite;
     public List<ItemsInfo> allItems;
     public List<Items> listPlayerItems;
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {
