@@ -7,22 +7,21 @@ using UnityEngine;
 public class FloatDMG : MonoBehaviour
 {
     public static FloatDMG instance;
+    public List<SetShowDMG> showDmg;
 
-    public List<SetShowDMG> gameObjects;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         instance = this;
 
-        foreach (Transform item in transform)
+        foreach (Transform dmg in transform)
         {
-            gameObjects.Add(item.GetComponent<SetShowDMG>());            
+            showDmg.Add(dmg.GetComponent<SetShowDMG>());
         }
     }
 
-    public void ShowDMG(int dmg, Vector3 pos)
+    public void Show(int dmg, Vector3 pos)
     {
-        var getOne = gameObjects.FirstOrDefault(x => !x.gameObject.activeSelf);
+        var getOne = showDmg.FirstOrDefault(x => !x.gameObject.activeSelf);
         if (getOne != null)
         {
             getOne.setDMG(dmg);
@@ -32,9 +31,9 @@ public class FloatDMG : MonoBehaviour
         }
     }
 
-    IEnumerator delay(GameObject gameObject)
+    IEnumerator delay(GameObject go)
     {
-        yield return new WaitForSeconds(1.5f);
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        go.SetActive(false);
     }
 }
