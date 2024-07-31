@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     private int current = 0;
 
     private Vector2 currentDirection;
+
+    public GameObject firework;
 
     private void Start()
     {
@@ -56,13 +59,26 @@ public class PlayerMove : MonoBehaviour
             float posY = Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f);
             Vector3 pos = new Vector3(posX, posY, transform.position.z);
 
-            FloatDMG.instance.Show(Random.Range(100,200), pos);
+            FloatDMG.instance.Show(Random.Range(100, 200), pos);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             EditorApplication.isPlaying = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CinemachineCameraShake.instance.ShakeCamera(3f, .2f);
+            firework.SetActive(true);
+            StartCoroutine(delayFirework());
+        }
+    }
+
+    IEnumerator delayFirework()
+    {
+        yield return new WaitForSeconds(3f);
+        firework.SetActive(false);
     }
 
     private void FixedUpdate()
