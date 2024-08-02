@@ -71,6 +71,8 @@ public class PlayerMove : MonoBehaviour
         {
             CinemachineCameraShake.instance.ShakeCamera(3f, .2f);
             firework.SetActive(true);
+            firework.transform.parent = null;
+            firework.GetComponent<CircleCollider2D>().enabled = true;
             StartCoroutine(delayFirework());
         }
     }
@@ -78,6 +80,9 @@ public class PlayerMove : MonoBehaviour
     IEnumerator delayFirework()
     {
         yield return new WaitForSeconds(3f);
+        firework.GetComponent<CircleCollider2D>().enabled = false;
+        firework.transform.parent = transform;
+        transform.localPosition = Vector3.zero;
         firework.SetActive(false);
     }
 
