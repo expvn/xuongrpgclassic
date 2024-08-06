@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -52.7, y: 43.3}
+  m_AnchoredPosition: {x: -52.69995, y: 43.299988}
   m_SizeDelta: {x: 221.8326, y: 221.8326}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &30942714
@@ -48675,6 +48675,7 @@ GameObject:
   - component: {fileID: 1692140960}
   - component: {fileID: 1692140961}
   - component: {fileID: 1692140962}
+  - component: {fileID: 1692140963}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48774,6 +48775,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26eb980f29bf6df4992767a706287ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1692140963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692140959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa15bab040a379b46a9abe4f65b89da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listTower: []
 --- !u!224 &1692346817 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5448500534146128595, guid: 84bc27e95d1de7443842916ad7a1396d, type: 3}
