@@ -18,22 +18,23 @@ MonoBehaviour:
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 2093186594, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 2093186594, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: -2031541144, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: -2031541144, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 693853673, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 693853673, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 693853673, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 179664457, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 1830541467, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: -133327340, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: 2093186594, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
-    - {fileID: -2031541144, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 636246116, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 636246116, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: -1950847014, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 408215696, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 1764361262, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: 1393498210, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: -505291194, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
+    - {fileID: -1090000893, guid: 25c03ba1b2fab3245b98e19878a0f200, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
-    m_PerlinScale: 0.702
+    m_PerlinScale: 0.288
     m_Output: 1
     m_ColliderType: 1
     m_RandomTransform: 0
