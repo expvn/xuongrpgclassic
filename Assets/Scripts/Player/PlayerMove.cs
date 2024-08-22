@@ -64,7 +64,9 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
+            #endif  
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
