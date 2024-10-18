@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Linq;
 using UnityEditor;
@@ -16,14 +17,24 @@ public class PlayerMove : MonoBehaviour
 
     public GameObject firework;
 
+    public CinemachineConfiner2D confiner;
+    public Collider2D c1;
+    public Collider2D c2;
+
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        confiner.m_BoundingShape2D = c1;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if(confiner.m_BoundingShape2D == c1) confiner.m_BoundingShape2D = c2;
+            else confiner.m_BoundingShape2D = c1;
+        }
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
